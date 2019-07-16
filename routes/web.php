@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('forum');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('{reactRoutes}', function () {
+    return view('forum'); // your start view
+})->where('reactRoutes', '^((?!api).)*$'); // except 'api' word
