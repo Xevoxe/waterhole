@@ -6,3 +6,25 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.Grippie{
+    &::before{
+        content: "";
+        width: 27px;
+        margin: auto;
+        display: block;
+        border-top:3px double #fff;
+    }
+}
+
+.editor {
+    height: calc(100% - 11px);
+}
+
+// .border {
+//     border: 2px solid black;
+// }
+
+.dropdown-item:hover{
+    background-color:$highlight;
+}
