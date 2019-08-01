@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './Button';
 import withRedux from '../hoc/withRedux';
 import {composerNew} from '../../redux/composerActions';
-import DropDownMenu from './DropDownMenu';
+
 
 import {IconContext} from 'react-icons';
 import {FiPlus as PlusIcon} from 'react-icons/fi';
@@ -15,13 +15,13 @@ const NavBar = ({categories})=> {
 
     return(
         <nav className="navbar navbar-light bg-light w-100 justify-content-between">
-                <DropDownMenu title="All Categories">
+                {/* <DropDownMenu title="All Categories">
                     {categories.map((category,index)=>{
                         return(
                             <span key={index}data-label={category.label}>{category.label}</span>
                         )
                     })}
-                </DropDownMenu>
+                </DropDownMenu> */}
                 <ReduxButton className="container" classNames="btn btn-secondary text-center">
                     <div style={styles} className="row align-items-center">
                         <span className="col-4 pr-0">

@@ -1,6 +1,22 @@
-import React, {Component} from 'react';
+import React, {Component,Fragment} from 'react';
+
+import styled from 'styled-components';
 
 import PropTypes from 'prop-types';
+
+
+const Styled = styled.div`
+    display:flex;
+    flex-direction: column;
+    height: 375px;
+`;
+
+const StyledGrippie = styled.div`
+    cursor: row-resize;
+    padding: 4px 0;
+    background: ${props=> props.theme.secondary};
+`;
+
 
 class Grippie extends Component{ 
     constructor(props){
@@ -46,21 +62,15 @@ class Grippie extends Component{
 
     render(){
         return(
-            <div style={styles} onMouseDown={this.handleMouseDown} className="Grippie">
-            </div>
+            <Styled>
+                <StyledGrippie onMouseDown={this.handleMouseDown} className="Grippie">
+                </StyledGrippie>
+                {this.props.children}
+            </Styled>
         )
     
     }
 }
 
-const styles = {
-    cursor: "row-resize",
-    padding: "4px 0",
-    background: "#08c"
-}
 
 export default Grippie;
-
-Grippie.defaultProps={
-    styles: styles
-}

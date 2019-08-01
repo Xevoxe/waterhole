@@ -3,9 +3,40 @@ import {ComposerContext} from './ComposerContext';
 import PropTypes from 'prop-types';
 import UIBtn from './UIBtn';
 import {IconContext} from 'react-icons';
-
+import styled from 'styled-components';
+import {ToggleLeft, ToggleRight} from 'styled-icons/boxicons-regular';
+import {Minimize,Maximize} from 'styled-icons/feather';
+import {Fullscreen,FullscreenExit} from 'styled-icons/material';
 
 import {FiToggleLeft,FiToggleRight, FiMaximize2,FiMinimize2, FiChevronDown,FiChevronUp} from 'react-icons/fi'; 
+
+const ComposerToggle = styled(ToggleLeft)`
+    width: 40px
+    color: ${props =>props.theme.secondary};
+`;
+
+const PmToggle = styled(ToggleRight)`
+    width: 40px
+    color: ${props =>props.theme.secondary};
+`;
+
+const Minimized = styled(Minimize)`
+    width: 25px
+    color: ${props =>props.theme.secondary};
+`;
+const Maximized = styled(Maximize)`
+    width: 25px
+    color: ${props =>props.theme.secondary};
+`;
+const FullScrn = styled(Fullscreen)`
+    width: 30px
+    color: ${props =>props.theme.secondary};
+`;
+const Windowed = styled(FullscreenExit)`
+    width: 30px
+    color: ${props =>props.theme.secondary};
+`;
+
 
 const ComposerUi = () => {
     const {isPmMode,updateFormData,isFullscreen,isMinimized} = useContext(ComposerContext);
@@ -15,7 +46,7 @@ const ComposerUi = () => {
                 <div className="composer-ui-toggle">
                 <UIBtn id="mode" tipContent="Switch Editor Modes" onClick={()=>{updateFormData(!isPmMode,"isPmMode")}}>
                     {
-                        isPmMode ? <FiToggleRight /> : <FiToggleLeft/>
+                        isPmMode ? <PmToggle /> : <ComposerToggle/>
                     }
                 </UIBtn>
                 <span className="composer-ui-title">{isPmMode ? "Private Messenger" : "Compose New Topic"}</span>
@@ -23,12 +54,12 @@ const ComposerUi = () => {
                 <div className="composer-ui-controls d-inline-flex">
                     <UIBtn id="fullscreen" tipContent="Toggle FullScreen" classNames="btn btn-ghost p-1" onClick={()=>{updateFormData(!isFullscreen,"isFullscreen")}}>
                         {
-                            isFullscreen ? <FiMaximize2 /> : <FiMinimize2/>
+                            isFullscreen ? <Windowed /> : <FullScrn/>
                         }
                     </UIBtn>
                     <UIBtn id="minimized" tipContent="Toggle Minimized" classNames="btn btn-ghost p-1" onClick={()=>{updateFormData(!isMinimized,"isMinimized")}}>
                     {
-                        isMinimized ? <FiChevronUp /> : <FiChevronDown/>
+                        isMinimized ? <Maximized /> : <Minimized/>
                     }
                     </UIBtn>
                 </div>

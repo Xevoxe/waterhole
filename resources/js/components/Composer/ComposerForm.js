@@ -3,6 +3,7 @@ import {ComposerContext} from './ComposerContext';
 import DropDownSelect from './DropDownSelect';
 
 import styled from 'styled-components';
+import {StyledDropDownSelect} from './StyledComponents';
 
 
 const data = [
@@ -19,7 +20,6 @@ const data = [
 
 
 
-
 const ComposerForm = () => {
     const {updateFormData} = useContext(ComposerContext);
     const handleSelect = ()=>{
@@ -30,19 +30,40 @@ const ComposerForm = () => {
 
     }
 
+    const FormWrapper = styled.div.attrs({
+        className: 'container'
+    })``;
+
+    const FormInput = styled.div.attrs({
+        className: 'editor-input row'
+    })``;
+
+    const TitleInput = styled.div.attrs({
+        className: 'col-sm-8 mb-2'
+    })`
+        input{
+            border-color: ${props=>props.theme.primary};
+        }
+    `;
+
+    const CategorySelect = styled.div.attrs({
+        className: `category-selection col-sm-4 mb-2`
+    })`
+    `;
+
     return(
-        <div className="editor-wrapper container">
-            <div className="row">
-                <div className="title-input col-sm-8">
-                    <input onChange={(e)=>{updateFormData(e.target.value,"title")}} type="text" className="form-control border-primary" placeholder="Type title here."></input>
-                </div>
-                <div className="category-selection col-sm-4 pt-2 pt-sm-0 ">
-                    <DropDownSelect onSelect={handleSelect} title="All Categories">
+        <FormWrapper>
+            <FormInput>
+                <TitleInput>
+                    <input onChange={(e)=>{updateFormData(e.target.value,"title")}} type="text" className="form-control" placeholder="Type title here."></input>
+                </TitleInput>
+                <CategorySelect>
+                    <StyledDropDownSelect onSelect={handleSelect} title="All Categories">
                         {data.map((category) => <li onClick={handleSelection} key={category.id} dataid={category.id}>{category.label}</li>)}
-                    </DropDownSelect>
-                </div>
-            </div>
-        </div>
+                    </StyledDropDownSelect>
+                </CategorySelect>
+            </FormInput>
+        </FormWrapper>
     );
 
 }

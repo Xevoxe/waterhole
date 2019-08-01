@@ -9,6 +9,9 @@ import Portal from '../Portal';
 import Composer from '../Composer/Composer';
 import Topics from './Topics';
 
+import styled,{ThemeProvider} from 'styled-components';
+import {darkTheme,lightTheme} from '../Composer/GlobalStyles';
+
 class Waterhole extends Component {
 
     componentDidMount(){
@@ -18,30 +21,32 @@ class Waterhole extends Component {
 
     render(){ 
     return(
-        <Fragment>   
-            {!this.props.loaded ? console.log("Notloaded") :
-            <Fragment>
-                <div className="container">
-                    <div className="row">
-                        <NavBar categories={this.props.categories}/>
+        <ThemeProvider theme={lightTheme}>
+            <Fragment>   
+                {!this.props.loaded ? console.log("Notloaded") :
+                <Fragment>
+                    <div className="container">
+                        <div className="row">
+                            <NavBar categories={this.props.categories}/>
+                        </div>
+                        <div id="content-root" className="row">
+                            <BrowserRouter>
+                                <Switch>
+                                    <Route exact path="/" component={Home}/>
+                                    <Route path="/topics" component={Topics}/>
+                                </Switch>
+                            </BrowserRouter>
+                        </div>
                     </div>
-                    <div id="content-root" className="row">
-                        <BrowserRouter>
-                            <Switch>
-                                <Route exact path="/" component={Home}/>
-                                <Route path="/topics" component={Topics}/>
-                            </Switch>
-                        </BrowserRouter>
+                </Fragment>
+                } 
+                    <div id="composer-root" className="fixed-bottom">
+                        <Portal root="composer-root">
+                            { this.props.isComposerActive ? <Composer  /> : null }  
+                        </Portal>
                     </div>
-                </div>
-            </Fragment>
-            } 
-                <div id="composer-root" className="fixed-bottom">
-                    <Portal root="composer-root">
-                        { this.props.isComposerActive ? <Composer  /> : null }  
-                    </Portal>
-                </div>
-        </Fragment>
+                </Fragment>
+        </ThemeProvider>
     );
     }
 }
