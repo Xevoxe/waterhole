@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
+import DropDownSelect from '../DropDownSelect';
 
-import DropDownSelect from './DropDownSelect';
 
 export const StyledDropDownSelect = styled(DropDownSelect)`
     button{
@@ -49,7 +49,6 @@ export const StyledDropDownSelect = styled(DropDownSelect)`
         padding: 0;
         width: 100%;
         margin: 1px auto 0 auto;
-        background-color: white;
         li {
             display: block;
             width: 100%;

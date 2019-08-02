@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Grippie from './Grippie';
+import Grippie from '../Grippie';
 import ComposerUi from './ComposerUi';
 import ComposerForm from './ComposerForm';
 import Editor from './Editor';

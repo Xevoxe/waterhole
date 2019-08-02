@@ -10,7 +10,7 @@ import Composer from '../Composer/Composer';
 import Topics from './Topics';
 
 import styled,{ThemeProvider} from 'styled-components';
-import {darkTheme,lightTheme} from '../Composer/GlobalStyles';
+import {darkTheme,lightTheme} from '../GlobalStyles';
 
 class Waterhole extends Component {
 

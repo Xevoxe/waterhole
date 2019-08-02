@@ -1,5 +1,5 @@
 import React from 'react';
-import ComposerEditor from '../ComposerEditor';
+import ComposerEditor from './ComposerEditor';
 import styled from 'styled-components';
 
 const StyledEditor = styled.div`

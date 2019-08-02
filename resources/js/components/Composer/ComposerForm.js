@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {ComposerContext} from './ComposerContext';
-import DropDownSelect from './DropDownSelect';
+import DropDownSelect from '../DropDownSelect';
 
 import styled from 'styled-components';
 import {StyledDropDownSelect} from './StyledComponents';

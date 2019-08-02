@@ -8,32 +8,33 @@ import {ToggleLeft, ToggleRight} from 'styled-icons/boxicons-regular';
 import {Minimize,Maximize} from 'styled-icons/feather';
 import {Fullscreen,FullscreenExit} from 'styled-icons/material';
 
-import {FiToggleLeft,FiToggleRight, FiMaximize2,FiMinimize2, FiChevronDown,FiChevronUp} from 'react-icons/fi'; 
+
+
 
 const ComposerToggle = styled(ToggleLeft)`
-    width: 40px
+    width: 30px
     color: ${props =>props.theme.secondary};
 `;
 
 const PmToggle = styled(ToggleRight)`
-    width: 40px
+    width: 30px
     color: ${props =>props.theme.secondary};
 `;
 
 const Minimized = styled(Minimize)`
-    width: 25px
+    width: 20px
     color: ${props =>props.theme.secondary};
 `;
 const Maximized = styled(Maximize)`
-    width: 25px
+    width: 20px
     color: ${props =>props.theme.secondary};
 `;
 const FullScrn = styled(Fullscreen)`
-    width: 30px
+    width: 25px
     color: ${props =>props.theme.secondary};
 `;
 const Windowed = styled(FullscreenExit)`
-    width: 30px
+    width: 25px
     color: ${props =>props.theme.secondary};
 `;
 
@@ -51,7 +52,7 @@ const ComposerUi = () => {
                 </UIBtn>
                 <span className="composer-ui-title">{isPmMode ? "Private Messenger" : "Compose New Topic"}</span>
                 </div>
-                <div className="composer-ui-controls d-inline-flex">
+                <div className="composer-ui-controls d-inline-flex pr-2">
                     <UIBtn id="fullscreen" tipContent="Toggle FullScreen" classNames="btn btn-ghost p-1" onClick={()=>{updateFormData(!isFullscreen,"isFullscreen")}}>
                         {
                             isFullscreen ? <Windowed /> : <FullScrn/>

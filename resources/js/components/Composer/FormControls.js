@@ -17,6 +17,7 @@ const StyledPostBtn = styled(Button)`
     background-color: ${props => props.theme.highlight};
     width: 130px;
     margin-right: 5px;
+    justify-content:center;
 `;
 const StyledCancelBtn = styled(Button)`
     flex-grow: 0;
