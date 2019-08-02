@@ -11,6 +11,7 @@ const FormControlsWrapper = styled.div.attrs({className: 'col'})`
     justify-content:center;
     display: inline-flex;
     justify-content:left;
+    margin-bottom: 20px;
 `;
 
 const StyledPostBtn = styled(Button)`

@@ -30,9 +30,9 @@ const ComposerForm = () => {
 
     }
 
-    const FormWrapper = styled.div.attrs({
-        className: 'container'
-    })``;
+    const FormWrapper = styled.div`
+        padding: 0 15px;
+    `;
 
     const FormInput = styled.div.attrs({
         className: 'editor-input row'

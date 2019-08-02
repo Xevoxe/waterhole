@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 const Styled = styled.div`
     display:flex;
     flex-direction: column;
-    height: 375px;
 `;
 
 const StyledGrippie = styled.div`
@@ -26,10 +25,21 @@ class Grippie extends Component{
         this.handleMouseDown = this.handleMouseDown.bind(this);
         this.mouseupListener = this.mouseupListener.bind(this);
         this.mousemoveListener = this.mousemoveListener.bind(this); 
+        this.resize = this.resize.bind(this);
         
         this.minHeight = props.minHeight;
-        this.position = props.height;
-        this.Resize = props.onChangeHeight;
+        this.state ={
+            minHeight: props.minHeight || 375,
+            height: props.minHeight || 375
+        }
+        
+
+    }
+
+    resize(height){
+        this.setState({
+            height: height
+        });
     }
     
     captureMouseEvents(){
@@ -47,10 +57,10 @@ class Grippie extends Component{
         let offset = document.getElementById('navbar').clientHeight;
         let view = window.screen.height - window.innerHeight + offset;//Size of navbar place holder
         if(e.screenY >= view){
-            if(e.screenY > window.screen.height - this.minHeight){
-                this.Resize(this.minHeight);
-            }else this.Resize(window.screen.height - e.screenY);
-        }else this.Resize(window.screen.height - view);
+            if(e.screenY > window.screen.height - this.state.minHeight){
+                this.resize(this.state.minHeight);
+            }else this.resize(window.screen.height - e.screenY);
+        }else this.resize(window.screen.height - view);
 
         e.preventDefault();
     }
@@ -62,7 +72,7 @@ class Grippie extends Component{
 
     render(){
         return(
-            <Styled>
+            <Styled style={{height:`${this.state.height}px`}}>
                 <StyledGrippie onMouseDown={this.handleMouseDown} className="Grippie">
                 </StyledGrippie>
                 {this.props.children}
