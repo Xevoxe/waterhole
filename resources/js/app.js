@@ -16,16 +16,13 @@ require('./bootstrap');
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from './components/containers/Home';
-import Topics from './components/containers/Topics';
+import {Provider} from 'react-redux';
+import store from './redux/store';
+import Waterhole from './components/containers/Waterhole';
 
 ReactDom.render(
-    <BrowserRouter>
-        <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path="/topics" component={Topics}/>
-        </Switch>
-    </BrowserRouter> ,
-        document.getElementById('forum')
+    <Provider store={store}>
+        <Waterhole />
+    </Provider>,
+        document.getElementById('forum-root')
 );

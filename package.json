@@ -10,6 +10,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.5.5",
         "@babel/preset-react": "^7.0.0",
         "axios": "^0.19",
         "babel-eslint": "^10.0.2",
@@ -25,16 +26,29 @@
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0"
     },
     "dependencies": {
+        "immutable": "^4.0.0-rc.12",
         "npm": "^6.10.1",
+        "prop-types": "^15.7.2",
+        "react-icons": "^3.7.0",
+        "react-redux": "^7.1.0",
         "react-router-dom": "^5.0.1",
+        "react-tooltip": "^3.10.0",
+        "redux": "^4.0.4",
+        "redux-thunk": "^2.3.0",
+        "reselect": "^4.0.0",
         "run": "^1.4.0",
+        "slate": "^0.47.4",
+        "slate-html-serializer": "^0.8.6",
+        "slate-react": "^0.22.4",
+        "styled-components": "^4.3.2",
+        "styled-icons": "^8.3.0",
         "watch": "^1.0.2"
     }
 }

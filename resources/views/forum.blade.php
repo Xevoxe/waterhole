@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-  <div id="forum"></div>
+  <div id="forum-root"></div>
 @endsection
